@@ -36,6 +36,8 @@ file 'Guardfile', File.read("#{File.dirname(rails_template)}/Guardfile")
 file 'app/helpers/application_helper.rb', File.read("#{File.dirname(rails_template)}/app/helpers/application_helper.rb")
 file 'app/views/shared/_flash_messages.html.erb', File.read("#{File.dirname(rails_template)}/app/views/shared/_flash_messages.html.erb")
 file 'app/views/layouts/application.html.erb', File.read("#{File.dirname(rails_template)}/app/views/layouts/application.html.erb")
+application_layout_file = Dir['app/views/layouts/application.html.*'].first
+gsub_file application_layout_file, /App_Name/, "#{app_name.humanize.titleize}"
 
 # remove active_resource and test_unit
 gsub_file 'config/application.rb', /require 'rails\/all'/, <<-CODE
