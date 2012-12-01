@@ -33,8 +33,10 @@ file 'app/assets/stylesheets/application.css', File.read("#{File.dirname(rails_t
 run 'rm app/assets/stylesheets/app_bootstrap.css.scss'
 file 'app/assets/stylesheets/app_bootstrap.css.scss', File.read("#{File.dirname(rails_template)}/app/assets/stylesheets/app_bootstrap.css.scss")
 file 'Guardfile', File.read("#{File.dirname(rails_template)}/Guardfile")
+run 'rm app/helpers/application_helper.rb'
 file 'app/helpers/application_helper.rb', File.read("#{File.dirname(rails_template)}/app/helpers/application_helper.rb")
 file 'app/views/shared/_flash_messages.html.erb', File.read("#{File.dirname(rails_template)}/app/views/shared/_flash_messages.html.erb")
+run 'rm app/views/layouts/application.html.erb'
 file 'app/views/layouts/application.html.erb', File.read("#{File.dirname(rails_template)}/app/views/layouts/application.html.erb")
 application_layout_file = Dir['app/views/layouts/application.html.*'].first
 gsub_file application_layout_file, /App_Name/, "#{app_name.humanize.titleize}"
