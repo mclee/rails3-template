@@ -1,7 +1,5 @@
 # remove files
-run "rm README"
 run "rm public/index.html"
-run "rm public/images/rails.png"
 run "cp config/database.yml config/database.yml.example"
 
 # install gems
@@ -11,10 +9,13 @@ file 'Gemfile', File.read("#{File.dirname(rails_template)}/Gemfile")
 # bundle install
 run "bundle install"
 
+# database
+rake "db:create"
+
 # devise
 run "rails g devise:install"
 run "rails g devise User"
-run "rake db:migrate"
+rake "db:migrate"
 run "rails g devise:views"
 
 # simple_form
@@ -25,8 +26,11 @@ run "rails g simple_form:install --bootstrap"
 
 # copy files
 # file 'script/watchr.rb', File.read("#{File.dirname(rails_template)}/watchr.rb")
+run 'rm app/assets/javascripts/application.js'
 file 'app/assets/javascripts/application.js', File.read("#{File.dirname(rails_template)}/app/assets/javascripts/application.js")
+run 'rm app/assets/stylesheets/application.css'
 file 'app/assets/stylesheets/application.css', File.read("#{File.dirname(rails_template)}/app/assets/stylesheets/application.css")
+run 'rm app/assets/stylesheets/app_bootstrap.css.scss'
 file 'app/assets/stylesheets/app_bootstrap.css.scss', File.read("#{File.dirname(rails_template)}/app/assets/stylesheets/app_bootstrap.css.scss")
 file 'Guardfile', File.read("#{File.dirname(rails_template)}/Guardfile")
 
