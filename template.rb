@@ -35,6 +35,7 @@ file 'app/assets/stylesheets/app_bootstrap.css.scss', File.read("#{File.dirname(
 file 'Guardfile', File.read("#{File.dirname(rails_template)}/Guardfile")
 file 'app/helpers/application_helper.rb', File.read("#{File.dirname(rails_template)}/app/helpers/application_helper.rb")
 file 'app/views/shared/_flash_messages.html.erb', File.read("#{File.dirname(rails_template)}/app/views/shared/_flash_messages.html.erb")
+file 'app/views/layouts/application.html.erb', File.read("#{File.dirname(rails_template)}/app/views/layouts/application.html.erb")
 
 # remove active_resource and test_unit
 gsub_file 'config/application.rb', /require 'rails\/all'/, <<-CODE
