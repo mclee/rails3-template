@@ -38,6 +38,7 @@ group :development do
   gem 'rb-fsevent'
   gem 'quiet_assets'
   gem 'better_errors'
+  gem 'awesome_print'
 end
 # To use ActiveModel has_secure_password
 gem 'bcrypt-ruby', '~> 3.0.0'
