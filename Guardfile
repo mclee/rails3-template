@@ -11,5 +11,5 @@ guard 'livereload' do
   # Rails Assets Pipeline
   watch(%r{(app|vendor)/assets/\w+/(.+\.(css|js|html|.scss|.coffee)).*})  { |m| "/assets/#{m[2]}" }
   # Routes
-  watch('app/config/routes.rb')
+  watch('config/routes.rb')
 end
